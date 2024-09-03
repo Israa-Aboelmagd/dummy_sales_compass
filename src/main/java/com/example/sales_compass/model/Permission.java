@@ -28,7 +28,7 @@ public class Permission {
     private String name;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "permission_role", joinColumns = @JoinColumn(name = "ermission_id"), 
+    @JoinTable(name = "permission_role", joinColumns = @JoinColumn(name = "permission_id"), 
                inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
