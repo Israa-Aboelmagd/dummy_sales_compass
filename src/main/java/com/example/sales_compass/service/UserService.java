@@ -25,7 +25,7 @@ public class UserService {
     private final UserRepo userRepo;
     private final SessionRepo sessionRepo;
     private final PasswordEncoder passwordEncoder;
-
+    
     public void createUser(){
         Role r1= Role.builder().name("ss").build();
         Role r2= Role.builder().name("admin").build();

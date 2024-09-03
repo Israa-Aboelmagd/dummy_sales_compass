@@ -15,7 +15,7 @@ public class TestController {
     private final UserService userService;
     @GetMapping("/endpoint1")
     public String endPoint1() {
-        userService.createUser();
+        // userService.createUser();
         return "endPoint1";
     }
     @GetMapping("/endpoint2")
