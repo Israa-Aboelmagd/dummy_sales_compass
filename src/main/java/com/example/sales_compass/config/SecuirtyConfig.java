@@ -21,13 +21,15 @@ public class SecuirtyConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        http.authorizeHttpRequests(request -> request
+        http.csrf().disable().authorizeHttpRequests(request -> request
             .requestMatchers("/endpoint1").permitAll()
-            .requestMatchers("/endpoint2").hasRole("ss")
-            .requestMatchers("/endpoint3").hasAnyAuthority("read","write")
-            .requestMatchers("/endpoint4").hasAnyAuthority("read")
+            .requestMatchers("/endpoint2").hasRole("ADMIN")
+            .requestMatchers("/endpoint3").hasAuthority("write")
+            .requestMatchers("/endpoint4").hasAuthority("read")
+            .requestMatchers("/create-visit").hasAuthority("createVisit")
+            .requestMatchers("/get-visits").hasAuthority("getVisit")
             .anyRequest().authenticated()
-        ).formLogin(form->form.permitAll())
+        ).httpBasic().and().formLogin(form->form.permitAll())
         .logout(logout->logout.permitAll());
         return http.build();
     }

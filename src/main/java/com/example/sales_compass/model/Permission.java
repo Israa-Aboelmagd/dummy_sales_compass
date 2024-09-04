@@ -27,11 +27,11 @@ public class Permission {
     private Long id;
     private String name;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "permission_role", joinColumns = @JoinColumn(name = "permission_id"), 
-               inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    // @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    // @JoinTable(name = "permission_role", joinColumns = @JoinColumn(name = "permission_id"), 
+    //            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    // private Set<Role> roles;
 
-    @ManyToMany(mappedBy = "permissions")
-    private Set<User> users;
+    // @ManyToMany
+    // private Set<User> users;
 }

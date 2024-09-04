@@ -25,19 +25,19 @@ public class UserService {
     private final UserRepo userRepo;
     private final SessionRepo sessionRepo;
     private final PasswordEncoder passwordEncoder;
-    
+
     public void createUser(){
-        Role r1= Role.builder().name("ss").build();
-        Role r2= Role.builder().name("admin").build();
+        Role r1= Role.builder().name("ROLE_SS").build();
+        Role r2= Role.builder().name("ROLE_ADMIN").build();
         Permission p1 = Permission.builder()
-                        .name("read")
+                        .name("createVisit")
                         .build();
         Permission p2 = Permission.builder()
-                        .name("write")
+                        .name("getVisit")
                         .build();
-        User user = User.builder().userName("israa")
+        User user = User.builder().userName("ismail")
                     .password(passwordEncoder.encode("123"))
-                    .permissions(Set.of(p1,p2))
+                    .permissions(Set.of(p1))
                     .roles(Set.of(r1,r2))
                     .build();
         Session session = Session.builder().createdAt(LocalDateTime.now())

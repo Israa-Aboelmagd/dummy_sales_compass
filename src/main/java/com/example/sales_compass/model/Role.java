@@ -22,11 +22,10 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    // @Column()
     private String name;
 
-    @ManyToMany(mappedBy = "roles" )
-    private Set<User> users;
-    @ManyToMany(mappedBy = "roles" )
-    private Set<Permission> permissions;
+
+
+    // @ManyToMany
+    // private Set<Permission> permissions;
 }
